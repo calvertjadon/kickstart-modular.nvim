@@ -30,6 +30,9 @@ return {
     local dapui = require 'dapui'
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
+      { '<leader>dn', require('dap-python').test_method, desc = '[D]ebug [N]ext (method)' },
+      { '<leader>df', require('dap-python').test_class, desc = '[D]ebug [F]ile (class)' },
+      { '<leader>ds', require('dap-python').test_class, desc = '[D]ebug [S]election', mode = 'v' },
       { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
       { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
       { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
@@ -45,9 +48,6 @@ return {
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
       { '<F7>', dapui.toggle, desc = 'Debug: See last session result.' },
       unpack(keys),
-      { '<leader>dn', require('dap-python').test_method, desc = '[D]ebug [N]ext (method)' },
-      { '<leader>df', require('dap-python').test_class, desc = '[D]ebug [F]ile (class)' },
-      { '<leader>ds', require('dap-python').test_class, desc = '[D]ebug [S]election', mode = 'v' },
     }
   end,
   config = function()
